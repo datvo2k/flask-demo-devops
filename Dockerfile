@@ -1,12 +1,10 @@
 FROM python:3.12
 
-WORKDIR /app
+WORKDIR /hello
+COPY . /hello
 
-COPY app.py test.py /app/
-
-COPY requirements.txt /app/
-RUN pip install -r requirements.txt
-
-CMD ["python", "app.py"]
+RUN  pip install -r requirements.txt
 
 EXPOSE 5000
+
+CMD ["python", "run.py"]
