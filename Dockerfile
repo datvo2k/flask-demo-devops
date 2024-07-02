@@ -1,9 +1,11 @@
 FROM python:3.12
 
-COPY app.py test.py /app/
 WORKDIR /app
 
-RUN pip install flask pytest flake8
+COPY app.py test.py /app/
+
+COPY requirements.txt /app/
+RUN pip install -r requirements.txt
 
 CMD ["python", "app.py"]
 
